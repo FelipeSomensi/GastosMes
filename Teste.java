@@ -1,16 +1,18 @@
 package TestesContas;
 
-import ContasMes.ContasMes;
+import Contas.ContasAno;
+import Contas.Usuario;
 
 public class Teste {
 
 	public static void main(String[] args) {
 		
-		ContasMes contasFelipeAbril = new ContasMes();
-		contasFelipeAbril.setDinheiroSaldo(2000.0);
-		System.out.println("O Saldo atual de sua conta eh: "+contasFelipeAbril.getDinheiroSaldo());
-		contasFelipeAbril.lancarGasto(200);
-		System.out.println("O Saldo atual de sua conta eh: "+contasFelipeAbril.getDinheiroSaldo());
+		Usuario Felipe = new Usuario("Felipe Somensi");
+		ContasAno contasAnoFelipe = new ContasAno(2022,1);
+		System.out.println(contasAnoFelipe.ano);
+		
+		
+	
 
 	}
 
