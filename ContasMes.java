@@ -1,41 +1,77 @@
-package Contas;
+package ContasMes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContasMes {
 
+	public int mesContas;
+	private int anoContas;
+	private double valorGasto;
+	private String obsGastos;
+	private static List<Gastos> ListaGastos = new ArrayList<Gastos>();
 	
-	private double dinheiroSaldo;  //mostra o saldo no banco
-	public int mes;             // representa o numero do mes 
-	private int i = 0;
-	private String informacaoGasto[]; //guarda as informações referente a cada gasto
-	private double gastoMes[];			//gasto do mes/array
-	private double gasto;			// gasto generico
-	private String informacao;		// informacao generica
-	public ContasAno contaAno;
-	
-
-	public void setMes(int mes) {  //define o mes// Esta inserido dentro do ano
-		this.mes = mes;
-		System.out.println("Voce criou um novo mes: " + mes);
+	//construtor
+	public ContasMes() {
 		
 	}
-	
-	public void lancarGasto(double gasto, String informacao) { //lança um gasto para determinado mes e ano	
-		this.informacao = this.informacao;
-		this.gastoMes[i] = this.gasto;
-		this.informacaoGasto[i] = this.informacao;
-		dinheiroSaldo = dinheiroSaldo - this.gasto;
-		System.out.println("Voce adicionou um gasto de "+ gastoMes[i] + "reais referente a " + informacaoGasto[i]);
-		i++;		
+
+	public void atribuirGasto(double valorGasto,String obsGastos ) {
+		//ListaGastos gastoMes = new Gastos();
+		
+	}
+	//retorna valor e OBS de determinado gasto
+	public void getValorAndObsGasto(){
+		System.out.println("  Gasto: "+ valorGasto + " OBS: "+ obsGastos);
+		
+	}
+
+
+	public int getMesContas() {
+		return mesContas;
+	}
+
+
+
+	public void setMesContas(int mesContas) {
+		this.mesContas = mesContas;
+	}
+
+
+
+	public int getAnoContas() {
+		return anoContas;
+	}
+
+
+
+	public void setAnoContas(int anoContas) {
+		this.anoContas = anoContas;
+	}
+
+
+
+	public double getValorGasto() {
+		return valorGasto;
+	}
+
+
+
+	public void setValorGasto(double valorGasto) {
+		this.valorGasto = valorGasto;
+	}
+
+
+
+	public String getObsGastos() {
+		return obsGastos;
+	}
+
+
+
+	public void setObsGastos(String obsGastos) {
+		this.obsGastos = obsGastos;
 	}
 	
-	public void mostrarGastos() {   //verificar gastos do mes
-		if(i==0) {
-			System.out.println("Não existem gastos lancados");
-		} else {
-			for(int j=0;j<i;j++) {
-				System.out.println(gastoMes[j]);
-				System.out.println(informacaoGasto[j]);
-			}
-		}
-	}
+	
 }
