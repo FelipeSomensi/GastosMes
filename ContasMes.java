@@ -5,7 +5,8 @@ import java.util.List;
 
 public class ContasMes {
 
-	public int mesContas;
+	private int mesContas;
+	private String nomeMesDoAno;
 	private int anoContas;
 	private double valorGasto;
 	private String obsGastos;
@@ -72,6 +73,15 @@ public class ContasMes {
 	public void setObsGastos(String obsGastos) {
 		this.obsGastos = obsGastos;
 	}
+
+	public String getNomeMesContas() {
+		return nomeMesDoAno;
+	}
+
+	public void setNomeMesContas(String nomeMesContas) {
+		this.nomeMesDoAno = nomeMesContas;
+	}
+	
 	
 	
 }
