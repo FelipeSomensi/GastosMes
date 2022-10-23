@@ -7,12 +7,12 @@ public class Usuario {
 
 	private String nomeUser;    //nome do usuário
 	private String nomeMesDoAno;
-	public ContasMes contasMes;   //objeto do tipo ContasMes
+	private ContasMes contasMes;   //objeto do tipo ContasMes
 	private double valorGasto;
 	private String obsGastos;
 	private static List<ContasMes> listaDeContasMensais = new ArrayList<ContasMes>();
 	
-	
+	private double saldo;
 	
 	//construtor
 	public Usuario(String nomeUser) {
@@ -29,34 +29,74 @@ public class Usuario {
 		contasMensais.setValorGasto(valorGasto);
 		contasMensais.setObsGastos(obsGastos);
 		
-		if(mesContaMes == 1)  //define o nome do mes pelo numero que o usuario coloca
-			{nomeMesDoAno = "Janeiro";} 
-		else if(mesContaMes == 2) 
-			{nomeMesDoAno = "Fevereiro";}
-		else if(mesContaMes == 3) 
-			{nomeMesDoAno = "Marco";}
-		else if(mesContaMes == 4) 
-			{nomeMesDoAno = "Abril";}
-		else if(mesContaMes == 5) 
-			{nomeMesDoAno = "Maio";}
-		else if(mesContaMes == 10) 
-			{nomeMesDoAno = "Outubro";}
+		switch (mesContaMes) {
+			case 1:
+				nomeMesDoAno = "Janeiro";
+				break;
+			case 2:
+				nomeMesDoAno = "Fevereiro";
+				break;
+			case 3:
+				nomeMesDoAno = "Marco";
+				break;
+			case 4:
+				nomeMesDoAno = "Abril";
+				break;
+			case 5:
+				nomeMesDoAno = "Maio";
+				break;
+			case 6:
+				nomeMesDoAno = "Junho";
+				break;
+			case 7:
+				nomeMesDoAno = "Julho";
+				break;
+			case 8:
+				nomeMesDoAno = "Agosto";
+				break;
+			case 9:
+				nomeMesDoAno = "Setembro";
+				break;
+			case 10:
+				nomeMesDoAno = "Outubro";
+				break;
+			case 11:
+				nomeMesDoAno = "Novembro";
+				break;
+			case 12:
+				nomeMesDoAno = "Dezembro";
+				break;
+			
+		}
+		contasMensais.setNomeMesContas(this.nomeMesDoAno); //define o nome do mes no objeto ContasMes
 		
-		System.out.println("Gasto lançado"+ " Ano: " + anoContaMes + " Mes: " + nomeMesDoAno); //informa as informascoes do lançamento
+		System.out.println("Gasto adicionado"+ " Ano: " + anoContaMes + " Mes: " + nomeMesDoAno); //informa as informascoes do lançamento
 		System.out.println("Valor: " + valorGasto + " OBS: " + obsGastos);
 		listaDeContasMensais.add(contasMensais);
 	}
 
 	//metodo para informar os gastos de um mes
-	public void informaGastos(int metoAnoGasto, int metoMesGasto) {
+	public void informaGastos(int anoPesquisa, int mesPesquisa) {
 		int tamanhoBusca = listaDeContasMensais.size();
 		System.out.println("Os gastos lancados nesse mes:");
 		for (int i = 0; i < tamanhoBusca; i++) { 
-			if (listaDeContasMensais.get(i).getAnoContas() == metoAnoGasto && 
-					listaDeContasMensais.get(i).getMesContas() == metoMesGasto) {
+			if (listaDeContasMensais.get(i).getAnoContas() == anoPesquisa && 
+					listaDeContasMensais.get(i).getMesContas() == mesPesquisa) {
 						listaDeContasMensais.get(i).getValorAndObsGasto();
 			}  
 		}
+	}
+	
+	//metodo para informar os gastos de determinado ano //posteriormente 
+	public void informaGastosAno(int anoPesquisa) {
+		int tamanhoBusca = listaDeContasMensais.size();
+		System.out.println("Os gastos lancados nesse mes:");
+		for (int i = 0; i < tamanhoBusca; i++) {
+			if (listaDeContasMensais.get(i).getAnoContas() == anoPesquisa) {
+				
+			}
+		}
+		
 	}
 	
 
