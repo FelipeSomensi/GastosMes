@@ -23,6 +23,11 @@ public class Usuario {
 	
 	//metodo para criar conta  // necessario limitar as opçoes do usuario
 	public void lancarContaMes(int anoContaMes, int mesContaMes, double valorGasto, String obsGastos) {
+		
+		if(mesContaMes > 12 && mesContaMes > 1) {
+		System.out.println("Bah coloca um mes certo ae campeao");	
+		} else {
+		
 		ContasMes contasMensais = new ContasMes();
 		contasMensais.setAnoContas(anoContaMes);
 		contasMensais.setMesContas(mesContaMes);
@@ -68,13 +73,14 @@ public class Usuario {
 				break;
 			
 		}
-		contasMensais.setNomeMesContas(this.nomeMesDoAno); //define o nome do mes no objeto ContasMes
+		contasMensais.setNomeMesContas(nomeMesDoAno); //define o nome do mes no objeto ContasMes
 		
 		System.out.println("Gasto adicionado"+ " Ano: " + anoContaMes + " Mes: " + nomeMesDoAno); //informa as informascoes do lançamento
 		System.out.println("Valor: " + valorGasto + " OBS: " + obsGastos);
-		listaDeContasMensais.add(contasMensais);
+		listaDeContasMensais.add(contasMensais); //adiciona o gasto para uma lista de gastos desse usuário
+		}
 	}
-
+	
 	//metodo para informar os gastos de um mes
 	public void informaGastos(int anoPesquisa, int mesPesquisa) {
 		int tamanhoBusca = listaDeContasMensais.size();
@@ -98,7 +104,19 @@ public class Usuario {
 		}
 		
 	}
-	
+	//somas os gastos de determinado mes
+	public void somarGastosMes(int anoPesquisa, int mesPesquisa) { 
+		int tamanhoBusca = listaDeContasMensais.size();
+		double gastoTotal = 0;
+		for(int i = 0; i < tamanhoBusca; i++) {
+			if (listaDeContasMensais.get(i).getAnoContas() == anoPesquisa && 
+					listaDeContasMensais.get(i).getMesContas() == mesPesquisa) {
+					gastoTotal += listaDeContasMensais.get(i).getValorGasto();
+			}
+		}
+		System.out.println("O gasto total do mês escolhido eh: "+gastoTotal);
+		
+	}
 
 	public String getNomeUser() {
 		return nomeUser;
