@@ -18,15 +18,17 @@ public class TesteContasMes {
 		
 		
 		//------------------------
-		while(escolhaPrograma != 0 ) {
+		while(escolhaPrograma != 0 ) {  //menu
 			
 			System.out.println("CONTAS MENSAIS");
 			System.out.println("1 -- para adicionar gasto");
 			System.out.println("2 -- para verificar gastos");
+			System.out.println("3 -- para somar gastos de um mes");
 			System.out.println("0 -- Para Sair  ");
+		
 			escolhaPrograma = scan.nextInt();
 			
-			switch(escolhaPrograma) {
+			switch(escolhaPrograma) {  
 			case 1:
 				System.out.println("Por favor informe o ano:");
 				nAno=scan.nextInt();
@@ -45,18 +47,29 @@ public class TesteContasMes {
 				informacao = scan.next();
 				
 				Felipe.lancarContaMes(nAno, nMes, nValor, informacao); // anoGasto,mesGasto,gasto,obs
-				//Felipe.lancarContaMes(2022, 2, 100, "cabeleleilo");
 				break;
 			
 			case 2:
-				Felipe.informaGastos(2022, 2); //anoGasto, mesGasto
+				System.out.println("Informe o ano e o mes da pesquisa: ");
+				nAno=scan.nextInt();
+				nMes=scan.nextInt();
+				if(nMes > 12 && nMes > 1) {
+					System.out.println("Bah coloca um mes certo ae campeao");	
+					} else {
+				Felipe.informaGastos(nAno, nMes); //anoGasto, mesGasto
+					}
+				break;
+				
+			case 3:
+				System.out.println("Informe o ano e o mes da pesquisa: ");
+				nAno=scan.nextInt();
+				nMes=scan.nextInt();
+				Felipe.somarGastosMes(nAno, nMes);
 				break;
 				
 			case 0:
 				System.out.println("Voce escolheu sair");
-				System.exit(nAno); //forca o cancelamento do codigo
-			
-			
+				System.exit(nAno); //forca o cancelamento do codigo			
 			
 			}
 		
